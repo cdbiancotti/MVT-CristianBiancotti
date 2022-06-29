@@ -6,7 +6,7 @@ from .models import Prueba
 # Create your views here.
 
 def una_vista(request):
-    return HttpResponse('<h1>Mi perro dinamita</h1>')
+    return render(request, 'index.html')
 
 def un_template(request):
     
@@ -22,4 +22,4 @@ def un_template(request):
     # render = template.render({'lista_objetos': [prueba1, prueba2, prueba3]})
     # return HttpResponse(render)
     
-    return render(request, 'index.html', {'lista_objetos': [prueba1, prueba2, prueba3]})
+    return render(request, 'mi_template.html', {'lista_objetos': [prueba1, prueba2, prueba3]})

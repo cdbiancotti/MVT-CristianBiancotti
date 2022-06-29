@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Mi template</title>
+{% endblock title %}
+
+{% block texto_h1 %}
+Este es mi template
+{% endblock texto_h1 %}
+
+{% block despues_del_header %}
+<p>
+    <ul>
+        {% for objeto in lista_objetos %}
+        <li>{{objeto.nombre}}</li>
+        {% endfor %}
+    </ul>
+</p>
+{% endblock despues_del_header %}
