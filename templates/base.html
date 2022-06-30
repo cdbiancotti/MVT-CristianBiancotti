@@ -29,11 +29,11 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href={% url 'index' %}>Index</a>
-                <a class="navbar-brand" href={% url 'mi_template' %}>Mi Template</a>
+                <a class="navbar-brand" href={% url 'listado_perros' %}>Perros</a>
             </div>
         </nav>
 
-        {% block header %} {% block texto_h1 %}{% endblock texto_h1 %} 
+        {% block header %} {% block texto_header %}{% endblock texto_header %} 
         {% endblock header %} {% block despues_del_header%}{% endblock despues_del_header %}
 
         <!-- Footer-->
