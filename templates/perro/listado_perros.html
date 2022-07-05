@@ -26,7 +26,12 @@
     {% if listado_perros %}
     <ul>
         {% for perro in listado_perros %}
-        <li>{{perro}}</li>
+        <li>
+            {{perro}}
+            <a href={% url 'mostrar_perro' perro.id %}>Mostrar</a>
+            <a href={% url 'editar_perro' perro.id %}>Editar</a>
+            <a href={% url 'eliminar_perro' perro.id %}>Eliminar</a>
+        </li>
         {% endfor %}
     </ul>
     {% else %}
