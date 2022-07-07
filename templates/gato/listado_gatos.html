@@ -16,6 +16,13 @@
 </p>
 
 <p>
+    <form action={% url 'listado_gatos' %}>
+        {{form}}
+        <button>Buscar</button>
+    </form>
+</p>
+
+<p>
     {% if object_list %}
     <ul>
         {% for gato in object_list %}

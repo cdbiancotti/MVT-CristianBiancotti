@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from .forms import BusquedaPerro, FormPerro
 from .models import Perro
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
 
 def una_vista(request):
@@ -34,15 +35,16 @@ def crear_perro(request):
 def listado_perros(request):
     
     nombre_de_busqueda = request.GET.get('nombre')
-    
+
     if nombre_de_busqueda:
         listado_perros = Perro.objects.filter(nombre__icontains=nombre_de_busqueda) 
     else:
         listado_perros = Perro.objects.all()
-    
+
     form = BusquedaPerro()
     return render(request, 'perro/listado_perros.html', {'listado_perros': listado_perros, 'form': form})
-    
+
+@login_required
 def editar_perro(request, id):
     perro = Perro.objects.get(id=id)
     
@@ -63,7 +65,7 @@ def editar_perro(request, id):
     
     return render(request, 'perro/editar_perro.html', {'form': form_perro, 'perro': perro})
         
-
+@login_required
 def eliminar_perro(request, id):
     perro = Perro.objects.get(id=id)
     perro.delete()
