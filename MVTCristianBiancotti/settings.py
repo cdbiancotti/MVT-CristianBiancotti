@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'desafio',
     'mascota',
-    'accounts'
+    'accounts',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [

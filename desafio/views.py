@@ -19,6 +19,7 @@ def crear_perro(request):
             perro = Perro(
                 nombre=data.get('nombre'),
                 edad=data.get('edad'),
+                descripcion=data.get('descripcion'),
                 fecha_creacion=data.get('fecha_creacion') if data.get('fecha_creacion') else datetime.now()
             )
             perro.save()
@@ -53,6 +54,7 @@ def editar_perro(request, id):
         if form.is_valid():
             perro.nombre = form.cleaned_data.get('nombre')
             perro.edad = form.cleaned_data.get('edad')
+            perro.descripcion = form.cleaned_data.get('descripcion')
             perro.fecha_creacion = form.cleaned_data.get('fecha_creacion')
             perro.save()
     
@@ -61,7 +63,12 @@ def editar_perro(request, id):
         else:
             return render(request, 'perro/editar_perro.html', {'form': form, 'perro': perro})
             
-    form_perro = FormPerro(initial={'nombre': perro.nombre, 'edad': perro.edad, 'fecha_creacion': perro.fecha_creacion})
+    form_perro = FormPerro(
+        initial={
+            'nombre': perro.nombre,
+            'edad': perro.edad,
+            'descripcion': perro.descripcion,
+            'fecha_creacion': perro.fecha_creacion})
     
     return render(request, 'perro/editar_perro.html', {'form': form_perro, 'perro': perro})
         

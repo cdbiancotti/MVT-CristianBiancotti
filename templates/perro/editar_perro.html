@@ -18,6 +18,7 @@
     <form action={% url 'editar_perro' perro.id %} method="post">
         {% csrf_token %}
         <table>
+            {{form.media}}
             {{form.as_table}}
         </table>
         <button>Editar</button>
