@@ -65,7 +65,7 @@ ROOT_URLCONF = 'MVTCristianBiancotti.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\quiti\Desktop\Proyectos\MVT-CristianBiancotti\templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
